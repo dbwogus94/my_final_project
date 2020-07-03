@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.Total">
+	<resultMap type="totalDto" id="totalMap">
+		<result property="totalseq" column="TOTALSEQ"/>
+		<result property="joinseq" column="JOINSEQ"/>
+		<result property="joinemail" column="JOINEMAIL"/>
+		<result property="joinname" column="JOINNAME"/>
+		<result property="joinpw" column="JOINPW"/>
+		<result property="joinbirth" column="JOINBIRTH"/>
+		<result property="joinsex" column="JOINSEX"/>
+		<result property="photo" column="PHOTO"/>
+		<result property="mililtary" column="MILILTARY"/>
+		<result property="phone" column="PHONE"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="kakao" column="KAKAO"/>
+		<result property="singup" column="SIGNUP"/>
+<!-- 		<result property="skillseq" column="SKILLSEQ"/> -->
+		<result property="category" column="CATEGORY"/>
+		<result property="itskill1" column="ITSKILL1"/>
+		<result property="itskill2" column="ITSKILL2"/>
+		<result property="itskill3" column="ITSKILL3"/>
+		<result property="itskill4" column="ITSKILL4"/>
+		<result property="itskill5" column="ITSKILL5"/>
+		<result property="itscore1" column="ITSCORE1"/>
+		<result property="itscore2" column="ITSCORE2"/>
+		<result property="itscore3" column="ITSCORE3"/>
+		<result property="itscore4" column="ITSCORE4"/>
+		<result property="itscore5" column="ITSCORE5"/>
+		<result property="certificate" column="CERTIFICATE"/>
+		<result property="languagename" column="LANGUAGENAME"/>
+		<result property="languagescore" column="LANGUAGESCORE"/>
+		<result property="languageregdate" column="LANGUAGEREGDATE"/>
+		<result property="contest" column="CONTEST"/>
+		<result property="prize" column="PRIZE"/>
+		<result property="organization" column="ORGANIZATION"/>
+		<result property="startorganization" column="STARTORGANIZATION"/>
+		<result property="regdate" column="REGDATE"/>
+<!-- 		<result property="schoolseq" column="SCHOOLSEQ"/> -->
+		<result property="career" column="CAREER"/>
+		<result property="schoolname" column="SCHOOLNAME"/>
+		<result property="admission" column="ADMISSION"/>
+		<result property="graduate" column="GRADUATE"/>
+		<result property="major" column="MAJOR"/>
+		<result property="grade" column="GRADE"/>
+	</resultMap>	
+	
+	<insert id="ToTalInsert" parameterType="totalDto">
+		INSERT INTO TOTAL VALUES(TOTAL_SEQ.NEXTVAL,#{joinemail},#{joinname},#{joinpw},#{joinbirth},#{joinsex},#{photo},#{mililtary},#{phone},#{address},null,'Y','category',#{itskill1},#{itskill2},#{itskill3},#{itskill4},#{itskill5},#{itscore1},#{itscore2},#{itscore3},#{itscore4},#{itscore5},#{certificate},#{languagename},#{languagescore},#{languageregdate},#{contest},#{prize},#{organization},#{startorganization},#{regdate},#{career},#{schoolname},#{admission},#{graduate},#{major},#{grade})
+	</insert>
+
+	<select id="selectOne" resultMap="totalMap">
+		SELECT * FROM TOTAL WHERE JOINEMAIL = #{joinemail}
+	</select>
+
+	<update id="updateOne" parameterType="totalDto">
+		UPDATE TOTAL 
+		SET JOINBIRTH = #{joinbirth}, JOINSEX = #{joinsex}, MILILTARY = #{mililtary}, PHONE = #{phone}, ADDRESS = #{address}, 
+		ITSKILL1 = #{itskill1}, ITSKILL2 = #{itskill2}, ITSKILL3 = #{itskill3}, ITSKILL4 = #{itskill4}, ITSKILL5 = #{itskill5},
+		ITSCORE1 = #{itscore1}, ITSCORE2 = #{itscore2}, ITSCORE3 = #{itscore3}, ITSCORE4 = #{itscore4}, ITSCORE5 = #{itscore5},
+		CERTIFICATE = #{certificate}, LANGUAGENAME = #{languagename}, LANGUAGESCORE = #{languagescore},
+		LANGUAGEREGDATE = #{languageregdate}, CONTEST = #{contest}, PRIZE = #{prize},
+	 	ORGANIZATION = #{organization}, STARTORGANIZATION = #{startorganization}, REGDATE = #{regdate},
+	 	CAREER = #{career}, SCHOOLNAME= #{schoolname}, ADMISSION = #{admission}, GRADUATE = #{graduate}, MAJOR = #{major}, GRADE=#{grade}
+		WHERE JOINEMAIL = #{joinemail}
+	</update>
+		
+
+
+	<!-- it역량차트 -->
+	<select id="selectItSkill" parameterType="totalDto"
+		resultType="map">
+		SELECT ITSKILL1, ITSKILL2, ITSKILL3, ITSKILL4, ITSKILL5,
+		ITSCORE1, ITSCORE2, ITSCORE3, ITSCORE4, ITSCORE5
+		FROM TOTAL
+		WHERE JOINEMAIL = #{joinemail}
+	</select>
+
+	<!-- 스펙차트 -->
+	<select id="selectMySkill" parameterType="totalDto"
+		resultType="totalDto">
+		SELECT LANGUAGESCORE, CONTEST, CERTIFICATE, GRADE, CAREER
+		FROM TOTAL
+		WHERE JOINEMAIL = #{joinemail}
+	</select>
+	
+	
+
+
+
+
+
+</mapper>

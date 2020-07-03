@@ -1,0 +1,64 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*---------- 본문 영역 ----------*/
+body {
+	overflow: hidden;
+}
+.container{
+	height: 100vh !important;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+	font-size: 36px !important;
+	font-weight: 700 !important;
+	cursor: default;
+}
+
+/*---------- center box 영역 ----------*/
+#center-box {
+	text-align: center;
+	margin: 2%;
+}
+
+.col-sm-4 {
+	border: 1.5px solid black;
+	border-radius: 4%;
+	margin: 1%;
+	width: 31.3% !important;
+	padding: 5%;
+	background-color: #f0f0f0;
+}
+
+i {
+	margin-bottom: 30px;
+}
+
+p {
+	font-family: 'yg-jalnan';
+	font-size: 18px;	
+}
+
+.btn {
+	margin-top: 10px;
+	font-family: 'yg-jalnan';
+	font-size: 23px !important;
+	background-color: black;
+	color: white;
+}
+
+.btn:hover{
+	background-color: #00BF6F;
+	color: white !important;
+}

@@ -1,0 +1,225 @@
+@charset "utf-8";
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.container {
+	background-color: #ebe6e6 !important;
+}
+
+/*---------- 타이틀 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	background: #00BF6F;
+	border-radius: 20px 20px 0 0;
+	color: #fff !important;
+	font-size: 28px !important;
+	padding: 20px 26px;
+	margin-bottom: 0px !important;
+}
+
+/*---------- 로그인폼 ----------*/
+/* 로그인 전체박스 */
+#loginform {
+	flex: 2;
+	margin-top: 5%;
+	margin-bottom: 16%;
+}
+
+/* h1 아래 div */
+.login-box {
+	font-family: 'MapoPeacefull';
+	background: #fff;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
+	border-radius: 0 0 20px 20px;
+}
+
+/*---------- 이메일/ 비밀번호 입력창 ----------*/
+.idpw {
+	display: table-cell;
+	vertical-align: middle;
+	height: 40px !important;
+	width: 100%;
+	border-radius: 5px 5px 5px 5px;
+	background: #eee;
+	color: #777;
+	padding: 4px 10px;
+}
+
+/*---------- 로그인 버튼 ----------*/
+#loginbtn {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px 5px 5px 5px;
+	font-size: 20px;
+	color: #555;
+	text-align: center;
+	width: 100%;
+	height: 95px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+#loginbtn:hover {
+	color: #fff;
+	background-color: black;
+}
+
+/*---------- SNS 로그인 버튼 ----------*/
+#snslogin button {
+	margin: 0px 50px 10px 50px;
+	width: 80%;
+	height: 40px;
+}
+
+#snslogin p {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+/* 구글 로그인 */
+.abcRioButtonContentWrapper {
+	height: 100%;
+	width: 100%;
+	margin: -5px;
+}
+
+.abcRioButtonLightBlue {
+	display: contents;
+	margin: -10px !important;
+}
+
+.abcRioButtonIcon {
+	display: none;
+	float: left;
+}
+
+.abcRioButtonContents {
+	font-family: Roboto, arial, sans-serif;
+	font-size: 14px !important;
+	font-weight: 500;
+	letter-spacing: .21px;
+	margin-left: 6px;
+	color: black;
+	margin-right: 6px;
+	vertical-align: top;
+}
+
+#kakao-login-btn {
+	background-color: #F7E600;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+#kakao-login-btn:before {
+	content: "카카오로그인";
+}
+
+#google-login-btn {
+	background-color: #4285F4;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+#google-login-btn {
+	content: "구글로그인";
+}
+
+#not_signed_incecsrfac7ikh {
+	display: none;
+}
+
+/*---------- 아이디 비밀번호 찾기 ----------*/
+#findidpw {
+	text-align: right;
+}
+
+/*---------- 회원가입 a태그 ----------*/
+.join {
+	color: #00BF6F;
+}
+
+.join:hover {
+	color: #f95252;
+}
+
+/*---------- 아이디, 비번찾기 모달창 ----------*/
+#modal {
+	font-family: 'MapoPeacefull';
+}
+
+.modal-title{
+	font-family: 'yg-jalnan' !important;
+}
+/* 변경버튼 */
+#changepw {
+	width: 55%;	
+	margin: auto;
+}
+
+#changepw:hover {
+	background-color: #00BF6F;
+	color: #fff;
+}
+
+#wap {
+	display: flex;
+}
+
+.margin {
+	flex: 1;
+}
+
+.login {
+	margin-left: 10%;
+	width: 80%;
+	border-collapse: inherit;
+	border-spacing: 12px;
+	text-align: center;
+}
+
+.logininfo {
+	display: table-cell;
+	width: fit-content;
+	height: fit-content;
+}
+
+.logincell {
+	vertical-align: middle;
+	text-align: center;
+	width: fit-content;
+	height: fit-content;
+}
+
+#error {
+	color: red;
+}
+
+.M_table {
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+.M_table input {
+	height: 30px;
+	border-radius: 5px 5px 5px 5px;
+	margin-right: 6px;
+}
+
+.modal-content {
+	margin-top: 38%;
+}

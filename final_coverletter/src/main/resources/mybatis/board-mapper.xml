@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.Board"> <!-- 인터페이스 이름 형식으로 할 것 -->
+
+
+	<!-- 결과 리턴시 DTO와 칼럼이 일치 하지 않을때 사용 -->
+	<!-- property dto 속성, column 대응할 칼럼명 -->
+	<!-- <resultMap type="" id="loginMap"> -->
+	<!-- <result property="" column=""/> -->
+	<!-- <result property="" column=""/> -->
+	<!-- </resultMap> -->
+
+	<!-- 글목록(게시글 수) -->
+	<select id="boardListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARD
+		WHERE GROUPSEQ = 1
+		<trim prefix = "AND" prefixOverrides = "AND">
+			<if test="category == 'title' and keyword != null and keyword != ''">
+				AND TITLE LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if test="category == 'content' and keyword != null and keyword != ''">
+				AND CONTENT LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if test="category == 'joinemail' and keyword != null and keyword != ''">
+				AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+	</select>
+	
+	<!-- 글목록(페이징) : StartIndex(시작인덱스), CntPerPage(마지막인덱스) 가져오기 -->
+	<select id="boardList" parameterType="boardDto" resultType="boardDto">
+		SELECT B.*
+		FROM (
+			SELECT A.*, ROW_NUMBER() OVER(ORDER BY BOARDSEQ DESC) AS RNUM
+			FROM BOARD A
+			WHERE GROUPSEQ = 1
+				<trim prefix = "AND" prefixOverrides = "AND">
+					<if test="category == 'title' and keyword != null and keyword != ''">
+						AND TITLE LIKE ('%' || #{keyword} || '%')
+					</if>
+					<if test="category == 'content' and keyword != null and keyword != ''">
+						AND CONTENT LIKE ('%' || #{keyword} || '%')
+					</if>
+					<if test="category == 'joinemail' and keyword != null and keyword != ''">
+						AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+					</if>
+				</trim>
+			) B	
+			WHERE RNUM BETWEEN  #{StartIndex} + 1 AND #{CntPerPage}
+			ORDER BY BOARDSEQ DESC
+	</select>
+
+	<!-- 글작성 -->
+	<insert id="boardInsert" parameterType="boardDto">
+		INSERT INTO BOARD (BOARDSEQ, GROUPNO, GROUPSEQ, TITLETAB, JOINEMAIL, TITLE, CONTENT, REGDATE , FILEPATH)
+		VALUES (BOARD_SEQ.NEXTVAL, BOARD_SEQ.CURRVAL, 1, 0, #{joinemail}, #{title}, #{content}, SYSDATE , #{filepath})
+	</insert>
+
+	<!-- 글상세 -->
+	<select id="boardDetail" parameterType="boardDto" resultType="boardDto">
+		SELECT BOARDSEQ, GROUPNO,
+		GROUPSEQ, TITLETAB, JOINEMAIL, TITLE, CONTENT, FILEPATH, REGDATE
+		FROM
+		BOARD
+		WHERE BOARDSEQ = #{boardseq}
+	</select>
+
+	<!-- 글수정 -->
+	<update id="boardUpdate" parameterType="boardDto">
+		UPDATE BOARD
+		SET TITLE = #{title}, CONTENT = #{content}
+		WHERE BOARDSEQ = #{boardseq}
+	</update>
+
+
+	<!-- 글삭제 -->
+	<delete id="boardDelete" parameterType="int">
+		DELETE
+		FROM BOARD
+		WHERE GROUPNO = #{groupno}
+	</delete>
+
+	<!-- 댓글작성1 : 그룹시퀀스 업데이트 -->
+	<update id="replyUpdate" parameterType="boardDto">
+		UPDATE BOARD
+		SET GROUPSEQ = GROUPSEQ + 1
+		WHERE GROUPNO = (SELECT GROUPNO FROM BOARD WHERE BOARDSEQ = #{boardseq})
+		AND GROUPSEQ > 1
+	</update>
+
+	<!-- 댓글작성2 : 댓글작성 -->
+	<insert id="replyInsert" parameterType="boardDto">
+		INSERT INTO BOARD(BOARDSEQ, GROUPNO, GROUPSEQ, TITLETAB, JOINEMAIL, CONTENT, REGDATE)
+		VALUES (
+			BOARD_SEQ.NEXTVAL,
+			(SELECT GROUPNO FROM BOARD WHERE BOARDSEQ = #{boardseq}),
+			(SELECT GROUPSEQ FROM BOARD WHERE BOARDSEQ = #{boardseq}) + 1,
+			(SELECT TITLETAB FROM BOARD WHERE BOARDSEQ = #{boardseq}) + 1,
+			#{joinemail}, #{content}, SYSDATE
+		)
+	</insert>
+	
+	<!-- 대댓글작성1 : 그룹시퀀스 업데이트 -->
+	<update id="rereUpdate" parameterType="boardDto">
+		UPDATE BOARD
+		SET GROUPSEQ = GROUPSEQ + 1
+		WHERE GROUPNO = (SELECT GROUPNO FROM BOARD WHERE BOARDSEQ = #{boardseq})
+		AND GROUPSEQ > (SELECT GROUPSEQ FROM BOARD WHERE BOARDSEQ = #{boardseq})
+	</update>
+	
+	<!-- 대댓글작성2 : 대댓글작성 -->
+	<insert id="rereInsert" parameterType="boardDto">
+		INSERT INTO BOARD (BOARDSEQ, GROUPNO, GROUPSEQ,  TITLETAB, JOINEMAIL, CONTENT, REGDATE)
+		VALUES (
+			BOARD_SEQ.NEXTVAL, 
+			(SELECT GROUPNO FROM BOARD WHERE BOARDSEQ = #{boardseq}),
+			(SELECT GROUPSEQ FROM BOARD WHERE BOARDSEQ = #{boardseq}) + 1,
+			(SELECT TITLETAB FROM BOARD WHERE BOARDSEQ = #{boardseq}) + 1,
+			#{joinemail}, #{content}, SYSDATE)
+	</insert>
+
+	<!-- 댓글상세 -->
+	<select id="replyList" parameterType="boardDto" resultType="boardDto">
+		SELECT BOARDSEQ, GROUPNO, GROUPSEQ,  TITLETAB, JOINEMAIL, CONTENT, REGDATE
+		FROM BOARD
+		WHERE GROUPNO IN (
+			SELECT GROUPNO
+			FROM BOARD
+			WHERE BOARDSEQ = #{boardseq}	
+		)
+		AND TITLETAB != 0
+		ORDER BY GROUPNO DESC, GROUPSEQ ASC
+	</select>
+
+	<!-- 댓글삭제 -->
+	<delete id="replyDelete" parameterType="int">
+		DELETE
+		FROM BOARD
+		WHERE BOARDSEQ = #{boardseq}
+	</delete>
+	
+	
+	
+</mapper>

@@ -1,0 +1,113 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*---------- 타이틀 ----------*/
+#hello {
+	text-align: center;
+	margin-top: 4%;
+	margin-bottom: 1%;
+	font-family: 'yg-jalnan';
+}
+
+/*---------- *값은 필수입니다 ----------*/
+#info {
+	font-size: 15px;
+	color: red;
+	font-weight: bold;
+}
+
+/*---------- 전체 테이블 ----------*/
+#jointable {
+	font-family: 'MapoPeacefull';
+	margin-left: 20%;
+	width: 60%;
+	border-collapse: inherit;
+	border-spacing: 12px;
+	text-align: center;
+}
+
+#jointable input[type="text"] {
+	display: table-cell;
+	vertical-align: middle;
+	height: 40px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+/* 비번확인 */
+#joinpw {
+	display: table-cell;
+	vertical-align: middle;
+	height: 40px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+th {
+	font-size: 20px;
+	width: 165px;
+}
+
+/*---------- submit 버튼 (회원가입) ----------*/
+#join {
+	font-family: 'yg-jalnan' !important;
+	margin: auto;
+    /* margin-top: 5%; */
+    /* margin-left: 5%; */
+    width: 100%;
+    height: 50px;
+    background-color: #00bf6f;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.joininfo {
+	display: table-cell;
+	width: fit-content;
+	height: fit-content;
+}
+
+.checkcell {
+	vertical-align: middle;
+	text-align: left;
+	width: fit-content;
+	height: fit-content;
+}
+
+
+
+.joinsex {
+	display: table-cell;
+	vertical-align: middle;
+	width: 8%;
+	height: 20px;
+	position: relative;
+	top: -5.5px;
+	float: left;
+}
+
+#jointable label {
+	top: 4px;
+	font-size: 17px;
+	float: left;
+	margin-right: 30px;
+}

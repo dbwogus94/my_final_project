@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.CoverLetter"> <!-- 인터페이스 이름 형식으로 할 것 -->
+
+	<resultMap type="coverLetterDto" id="coverLetterMap">
+      <result property="coverletterseq" column="TOTALSEQ"/>
+      <result property="joinemail" column="JOINEMAIL"/>
+      <result property="cvcategory" column="CVCATEGORY"/>
+      <result property="groupseq" column="GROUPSEQ"/>
+      <result property="groupno" column="GROUPNO"/>
+      <result property="question" column="QUESTION"/>
+      <result property="title" column="TITLE"/>
+      <result property="subtitle" column="SUBTITLE"/>
+      <result property="content" column="CONTENT"/>
+      <result property="functions" column="FUNCTIONS"/>
+      <result property="positions" column="POSITIONS"/>
+      <result property="participation" column="PARTICIPATION"/>
+      <result property="functioninfo" column="FUNCTIONINFO"/>
+      <result property="viewinfo" column="VIEWINFO"/>
+      <result property="regdate" column="REGDATE"/>
+      <result property="filepath" column="FILEPATH"/>
+   </resultMap>
+   
+	<!-- 글목록(게시글 수) -->
+	<!-- 자소서 게시판 -->
+	<select id="boardCVListCount" resultType="int"
+		parameterType="coverLetterDto">
+		SELECT COUNT(*)
+		FROM COVERLETTER
+		WHERE CVCATEGORY = #{cvcategory}
+		AND
+		JOINEMAIL = #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'title' and keyword != null and keyword != ''">
+				AND TITLE LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'content' and keyword != null and keyword != ''">
+				AND CONTENT LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'joinemail' and keyword != null and keyword != ''">
+				AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+	</select>
+
+	<!-- 글목록(페이징) : StartIndex(시작인덱스), CntPerPage(마지막인덱스) 가져오기 -->
+	<select id="boardCVList" parameterType="coverLetterDto"
+		resultMap="coverLetterMap">
+		SELECT B.*
+		FROM (
+		SELECT A.*, ROW_NUMBER() OVER(ORDER BY GROUPSEQ DESC)
+		AS RNUM
+		FROM COVERLETTER A
+		WHERE CVCATEGORY = #{cvcategory}
+		AND JOINEMAIL
+		= #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'title' and keyword != null and keyword != ''">
+				AND TITLE LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'content' and keyword != null and keyword != ''">
+				AND CONTENT LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'joinemail' and keyword != null and keyword != ''">
+				AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+		) B
+		WHERE RNUM BETWEEN #{StartIndex} + 1 AND #{CntPerPage}
+		ORDER BY
+		GROUPSEQ DESC
+	</select>
+
+	<!-- 포폴 게시판 -->
+
+	<select id="boardPFListCount" resultType="int"
+		parameterType="coverLetterDto">
+		SELECT COUNT(*)
+		FROM COVERLETTER
+		WHERE CVCATEGORY = #{cvcategory}
+		AND
+		JOINEMAIL = #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'title' and keyword != null and keyword != ''">
+				AND TITLE LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'content' and keyword != null and keyword != ''">
+				AND CONTENT LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'joinemail' and keyword != null and keyword != ''">
+				AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+	</select>
+
+	<!-- 글목록(페이징) : StartIndex(시작인덱스), CntPerPage(마지막인덱스) 가져오기 -->
+	<select id="boardPFList" parameterType="coverLetterDto"
+		resultMap="coverLetterMap">
+		SELECT B.*
+		FROM (
+		SELECT A.*, ROW_NUMBER() OVER(ORDER BY GROUPSEQ DESC)
+		AS RNUM
+		FROM COVERLETTER A
+		WHERE CVCATEGORY = #{cvcategory}
+		AND JOINEMAIL
+		= #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'title' and keyword != null and keyword != ''">
+				AND TITLE LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'content' and keyword != null and keyword != ''">
+				AND CONTENT LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'joinemail' and keyword != null and keyword != ''">
+				AND JOINEMAIL LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+		) B
+		WHERE RNUM BETWEEN #{StartIndex} + 1 AND #{CntPerPage}
+		ORDER BY
+		GROUPSEQ DESC
+	</select>
+
+
+	<!-- 이력서 게시판 삭제 -->
+	<delete id="CVmuldel" parameterType="map">
+		DELETE FROM COVERLETTER WHERE CVCATEGORY = '자소서' AND GROUPSEQ IN
+		<foreach collection="seqs" item="groupseq" open="("
+			separator="," close=")">
+			#{groupseq}
+		</foreach>
+	</delete>
+	
+	<!-- 가장큰 그룹 번호 가져오기 -->
+	<select id="getGroupno" parameterType="String" resultType="int">
+		SELECT MAX(GROUPNO) FROM COVERLETTER WHERE JOINEMAIL = #{joinemail}
+	</select>
+
+	<!-- 포폴 게시판 등록 -->
+	<insert id="PFinsert" parameterType="coverLetterDto">
+		INSERT INTO COVERLETTER(TOTALSEQ, JOINEMAIL, CVCATEGORY, GROUPSEQ, GROUPNO, QUESTION, TITLE, SUBTITLE, CONTENT, FUNCTIONS, POSITIONS, PARTICIPATION, FUNCTIONINFO, VIEWINFO, REGDATE, FILEPATH)
+		VALUES(TOTAL_SEQ.NEXTVAL, #{joinemail}, '포폴', PORTFOLIO_SEQ.NEXTVAL, #{groupno},
+		#{question},#{title},#{subtitle},#{content},#{functions},#{positions},#{participation},#{functioninfo},#{viewinfo},SYSDATE,#{filepath})
+	</insert>
+	
+	<!-- 포폴 게시판 삭제 -->
+	<delete id="PFmuldel" parameterType="map">
+		DELETE FROM COVERLETTER WHERE CVCATEGORY = '포폴' AND GROUPSEQ IN
+		<foreach collection="seqs" item="groupseq" open="("
+			separator="," close=")">
+			#{groupseq}
+		</foreach>
+	</delete>
+	
+	<!-- 그룹번호로 포토폴리오 가져오기  -->
+	<select id="PFDetail" resultMap="coverLetterMap">
+		SELECT * FROM COVERLETTER 
+		WHERE CVCATEGORY = '포폴' AND JOINEMAIL = #{joinemail} AND GROUPNO = #{groupno}
+	</select>
+	
+	
+	<!-- 자기소개서 입력 (첫 문항) -->
+	<insert id="CVinsert" parameterType="coverLetterDto">
+		INSERT INTO COVERLETTER
+		(TOTALSEQ, JOINEMAIL, CVCATEGORY, GROUPSEQ, QUESTION, TITLE, SUBTITLE,
+		CONTENT,
+		REGDATE)
+		VALUES
+		(TOTAL_SEQ.NEXTVAL, #{joinemail}, '자소서',
+		COVERLETTER_SEQ.NEXTVAL, #{question},
+		#{title}, #{subtitle},
+		#{content}, SYSDATE)
+	</insert>
+
+	<!-- 자기소개서 입력 (나머지 문항) -->
+	<insert id="CVinserts" parameterType="coverLetterDto">
+		INSERT INTO COVERLETTER
+		(TOTALSEQ, JOINEMAIL, CVCATEGORY, GROUPSEQ, QUESTION, TITLE, SUBTITLE,
+		CONTENT,
+		REGDATE)
+		VALUES
+		(TOTAL_SEQ.NEXTVAL, 
+		#{joinemail}, 
+		'자소서',
+		(SELECT COVERLETTER_SEQ FROM COVERLETTER WHERE ), 
+		#{question},
+		#{title}, #{subtitle},
+		#{content}, SYSDATE)
+	</insert>
+
+
+	<!-- 타이틀로 자기소개서 가져오기 -->
+	<select id="CVselectList" parameterType="coverLetterDto" resultMap="coverLetterMap">
+		SELECT * FROM COVERLETTER
+		WHERE TITLE = #{title} AND JOINEMAIL = #{joinemail}
+	</select>
+
+
+</mapper>

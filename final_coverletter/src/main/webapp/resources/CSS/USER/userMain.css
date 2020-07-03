@@ -1,0 +1,299 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.fa, .fas {
+    font-weight: 900;
+    font-size: 50px;
+}
+
+h2 {
+	font-family: 'yg-jalnan' !important;
+}
+
+.userContainer {
+	display: flex;
+	height: auto;
+	width: 100%;
+	background-color: white;
+	text-align: center;
+}
+
+.side {
+	background-color: #ebe6e6;
+	flex: 0.1;
+}
+
+.center1 {
+	flex: 0.3;
+}
+
+.center1height {
+	height: 1710px;
+}
+
+.center1heightside {
+	height: 20px;
+	background-color: #ebe6e6;
+}
+
+.centerside {
+	background-color: #ebe6e6;
+	flex: 0.05;
+}
+
+.center2 {
+	flex: 1.7;
+}
+
+.center2height {
+	height: 300px;
+}
+
+.center2heightside {
+	height: 20px;
+	background-color: #ebe6e6;
+}
+
+.center2calendar {
+	height: 670px;
+}
+
+.center2calendarside {
+	height: 20px;
+	background-color: #ebe6e6;
+}
+
+.topside {
+	height: 20px;
+	background-color: #ebe6e6;
+}
+
+.btn {
+	height: 35px;
+	width: 120px;
+	background-color: gray;
+	color: white;
+}
+
+.modal-content {
+	width: 300px;
+	height: 320px;
+	margin-left: 25%;
+}
+
+.modal-dialog {
+	vertical-align: middle;
+}
+
+.modal fade in {
+	vertical-align: middle;
+}
+
+#modal {
+	top: 40%;
+	margin-top: -40px;
+}
+
+.modal-footer {
+	position: relative;
+}
+
+/* 모달 - 탈퇴하기 */
+#soo {
+	display: block;
+	/* float: left; */
+	margin-left: 27.5%;
+	background-color: #00bf6f;
+	color: white;
+}
+
+#deleteDiv {
+	text-align: center;
+	font-weight: bold;
+}
+
+#delete {
+	text-decoration: underline;
+}
+
+#full {
+	margin: 40px 10px;
+	padding: 0;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+#calendar {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+/* 이력서, 포트폴리오, 채용즐찾 원형메뉴를 감싸는 div */
+.center2height_child_1 {
+	display: flex;
+	margin-top: 30px;
+}
+
+/* 이력서, 포트폴리오, 채용즐찾 원형메뉴 */
+.center2height_child_2 {
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	margin-top: 20px;
+	box-sizing: border-box;
+	box-shadow: 10px 10px 15px #b3b3b3;
+	transform: rotate(-5deg);
+	border-radius: 70%;
+	background-color: #ebe6e6;
+	flex: 1;
+	flex-flow: wrap;
+	transform: rotate(-0deg);
+}
+
+.center2height_child_2 a {
+	font-family: 'MapoPeacefull' !important;
+}
+
+.center2height_child_2_side {
+	flex: 1;
+}
+
+.center2height_child_2_between {
+	flex: 1;
+	height: 350px;
+}
+
+.boardLink {
+	font-family: "Nanum Gothic", sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 140px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: normal;
+}
+
+.board_NumberLink {
+	font-family: "Nanum Gothic", sans-serif;
+	font-size: 15px;
+	font-weight: 800;
+	line-height: 150px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+/* 클릭하지 않은 링크 */
+.boardLink:link {
+	color: black;
+	text-decoration: none;
+}
+/* 한번 클릭했던 혹은 다녀갔떤 링크 */
+.boardLink:visited {
+	color: black;
+	text-decoration: none;
+}
+/* 링크부분에서 마우스를 누르고 있는 동안의 상태 */
+.boardLink:active {
+	color: black;
+	text-decoration: none;
+}
+
+.boardLink:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.board_NumberLink:link {
+	color: #00b300;
+	text-decoration: none;
+}
+/* 한번 클릭했던 혹은 다녀갔떤 링크 */
+.board_NumberLink:visited {
+	color: #00b300;
+	text-decoration: none;
+}
+/* 링크부분에서 마우스를 누르고 있는 동안의 상태 */
+.board_NumberLink:active {
+	color: #00b300;
+	text-decoration: none;
+}
+
+.board_NumberLink:hover {
+	color: #00b300;
+	text-decoration: none;
+}
+
+/*---------- chart ----------*/
+.chart {
+	font-family: 'MapoPeacefull' !important;
+	display: inline-block;
+	position: inherit;
+}
+
+canvas {
+	font-family: 'MapoPeacefull' !important;
+	width: 500px !important;
+}
+
+/*---------- 버튼들 ----------*/
+.btn {
+	font-family: 'MapoPeacefull' !important;
+	background-color: #00BF6F !important;
+	color: #fff !important;
+	margin-bottom: 10px !important;
+}
+
+.menu-txt {
+	display: block;
+	margin: 5px 5px;
+}
+
+/*---------- 모달 ----------*/
+.modal-header {
+	font-family: 'yg-jalnan';
+	text-align: center;
+	font-weight: bold;
+	background: #00BF6F;
+	border-radius: 6px 6px 0 0;
+	color: #fff !important;
+	font-size: 23px !important;
+	padding: 20px 26px;
+	margin-bottom: 0px !important;
+	width: 100% !important;
+}
+
+.modal-body {
+	font-family: 'MapoPeacefull';
+	background: #fff !important;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
+	border-radius: 0 0 20px 20px;
+}
+
+.modal-footer {
+	font-family: 'MapoPeacefull';
+	padding: 0px !important;
+	text-align: right;
+	border-top: 0px solid #e5e5e5 !important;
+}
+
+#delete {
+	color: #f95252;
+}

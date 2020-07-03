@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/*헤더_not logout  */
+/*-- web font --*/
+@font-face {
+   font-family: 'GmarketSansMedium';
+   src:
+      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+      format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+#headerwap {
+   box-sizing: border-box;
+   font-size: 20px;
+   background-color: #00bf6f;
+   height: 50px;
+   width: 100%;
+   color: white;
+   display: flex;
+   font-family: 'GmarketSansMedium';
+}
+
+#logo {
+   margin: 5px 20px 0px 20px;
+   cursor: pointer;
+}
+
+/* 로고  */
+#logo img {
+   height: 40px;
+   width: 40px;
+   cursor: pointer;
+}
+
+#menu1 {
+   
+}
+
+#menu2 {
+   margin-left: auto;
+   margin-right: 15px;
+}
+
+#menu1, #menu2 {
+   max-width: 800px;
+   height: 50px;
+   line-height: 47px;
+}
+
+#menu1 span, #menu2 span {
+   padding-left: 10px;
+}
+
+#menu1 a, #menu2 a {
+   position: relative;
+   display: inline-block;
+   padding: 0 20px;
+   color: #fff;
+   letter-spacing: -.5px;
+   text-decoration: none;
+   margin-top: 5px !important;
+}
+
+#menu1 a:hover, #menu2 a:hover {
+   color: #ffe800;
+}
+
+#menu1 a:after, #menu2 a:after {
+   content: "";
+   display: block;
+}
+
+/* hover slide 부분 */
+#menu1 a:after, #menu2 a:after {
+   position: absolute;
+   left: 0;
+   bottom: -0.1px;
+   width: 0%;
+   height: 5px;
+   background-color: #ffe800;
+   -webkit-transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   -o-transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#menu1 a:hover:after, #menu2 a:hover:after {
+   width: 100%;
+}
+
+/* boby부분 */
+body {
+   background-color: #ebe6e6 !important;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+}
+a{
+	cursor: pointer; 
+}

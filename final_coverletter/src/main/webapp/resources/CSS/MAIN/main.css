@@ -1,0 +1,208 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+   font-family: 'yg-jalnan';
+   src:
+      url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+      format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+
+/*---------- container ----------*/
+.container {
+   background-color: #fff !important;
+}
+
+/*---------- title 영역 : h1 ----------*/
+#MaintopDiv {
+   text-align: center;
+}
+
+.title {
+   margin: 30px 0px 30px 0px !important;
+   font-family: 'yg-jalnan';
+}
+
+/*---------- subtitle 영역 : h5 ----------*/
+.container .h5 {
+   clear: both;
+   font-family: 'yg-jalnan';
+   font-size: 24px;
+   font-style: bold;
+   margin-bottom: 40px;
+   margin-top: 40px;
+   text-align: center;
+   letter-spacing: 0.1em !important;
+}
+
+/*---------- 채용정보 ALL div ----------*/
+.company {
+   height: 230px;
+   width: 100%;
+   margin: 30px 0px 100px 0px;
+}
+
+/* 회사정보 Div */
+.col-md-12 {
+   background-color: white;
+   border: 1px solid gray;
+   text-align: center;
+   height: 220px;
+}
+
+/*---------- 채용정보 div (1item) ----------*/
+.companyItem {
+   background-color: white;
+    border: 2px solid black;
+    text-align: center;
+    height: 95%;
+    width: 23.5%;
+    float: left;
+    margin-right: 1.5%;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+}
+
+.companyItem:hover {
+   border: 2px solid #00BF6F;
+}
+
+
+/* 회사정보 Div top*/
+.companyItemTop {
+   padding-bottom: 15px;
+   height: 36.5%;
+}
+
+.companyImg {
+   height: 80px;
+   width: 150px;
+}
+
+.companyImg2 {
+   height: 120.92px;
+   width: 120.92px;
+}
+
+.companyItemBottom {
+   width: 100%;
+}
+
+.endDate {
+   text-align: left;
+   padding-left: 5%;
+   font-size: 10px;
+}
+
+.totalCompanyItem {
+   background-color: white;
+   border: 1px solid gray;
+   text-align: center;
+   height: 220px;
+   width: 25%;
+   float: left;
+   margin-left: 1%;
+   padding-top: 2%;
+   padding-bottom: 1%;
+   margin-left: 0%;
+}
+
+.business {
+   display: block;
+   text-decoration: none;
+   color: #333;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   margin-left: 3%;
+   padding-top: 3%;
+}
+
+.companyname {
+   font-size: 15px;
+   font-weight: bold;
+   display: block;
+   text-decoration: none;
+   color: #333;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   padding-top: 25%;
+}
+
+.totalCompanyItem:hover , .webItem:hover, .frontItem:hover, .backItem:hover {
+   border: 3px solid #0bf9958c;
+}
+
+.front {
+   display: block;
+   text-decoration: none;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   margin-left: 3%;
+   padding-top: 3%;
+}
+/*------------------------------------------------*/
+
+/*웹,프론트,백, 전체 디브*/
+.webItem, .frontItem, .backItem {
+	background-color: white;
+	border: 1px solid gray;
+	text-align: center;
+	height: 220px;
+	width: 25%;
+	float: left;
+	margin-left: 1%;
+	padding-top: 2%;
+	padding-bottom: 1%;
+	margin-left: 0%;
+}
+/*웹,프론트,백 , 상단 디브*/
+.webItemTop, .frontItemTop, .backItemTop {
+	padding-bottom: 15px;
+	height: 36.5%;
+}
+/*웹,프론트,백 , 하단  디브*/
+.webItemBottom, .frontItemBottom, .backItemBottom {
+	width: 100%;
+}
+
+
+#bottom .row{
+	margin: 0;
+}
+
+
+#bottom .col-md-12{
+	padding: 0px;
+	padding-bottom: 2px;
+	height: auto;
+}
+
+#scrollButton{
+	border: none;
+	background-color: white;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size:16px;
+	font-weight: bolder;
+}
+
+#scrollButton:hover{
+	background-color: #00bf6f;
+	width: 100%;
+	padding: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size:16px;
+	font-weight: bolder;
+	color: white;
+}
+
+
+
+
+

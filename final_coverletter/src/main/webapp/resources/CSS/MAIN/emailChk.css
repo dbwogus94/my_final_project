@@ -1,0 +1,89 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: #ebe6e6 !important;
+}
+
+
+/*---------- 타이틀 ----------*/
+legend {
+	font-family: 'yg-jalnan';
+	text-align: center;
+	font-weight: bold;
+	background: #00BF6F;
+	border-radius: 20px 20px 0 0;
+	color: #fff !important;
+	font-size: 23px !important;
+	padding: 20px 26px;
+	margin-bottom: 0px !important;
+	margin-top: 20px !important;
+}
+
+.email-box {
+	font-family: 'MapoPeacefull';
+	background: #fff !important;
+	border-radius: 0 0 20px 20px;
+	padding: 20px 26px;
+	border-radius: 0 0 20px 20px;
+}
+
+#feilde, #feildeID{
+	width: 80%;
+	margin: auto;
+	margin-top: 40px !important;
+}
+
+fieldset {
+	border: 2px solid #BDBDBD;
+	margin-bottom: 20px;
+}
+
+
+input[type="text"], input[type="email"] {
+	width: 100%;
+	height: 30px;
+	border: none;
+	border-bottom: 2px solid #EAEAEA;
+	text-align: center;
+}
+
+input[type="button"], input[type="submit"] {
+	width: 100%;
+	height: 30px;
+	color: white;
+	border-radius: 5px;
+	background-color: #00bf6f;
+	margin-top: 20px;
+}
+
+#EmailCode {
+	margin-top: 20px;
+}
+
+#chk {
+	background-color: #fff;
+	border: 2px solid #00bf6f;
+	color: #000;
+}
+
+#errormessage {
+	font-size: 10pt;
+	margin-bottom: 20px;
+}

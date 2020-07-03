@@ -1,0 +1,122 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+	font-size: 36px !important;
+	font-weight: 700 !important;
+	cursor: default;
+}
+
+/*---------- 테이블 ----------*/
+.board-table {
+	font-family: 'MapoPeacefull' !important;
+	text-align: left;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 2px solid #f2f2f2;
+	width: 70%;
+	margin: 50px auto;
+	border-radius: .25rem;
+}
+
+th {
+	font-family: 'MapoPeacefull' !important;
+	display: table-cell;
+	text-align: center !important;
+	width: 15%;
+	font-size: 17px;
+	cursor: default;
+}
+
+th div {
+	font-family: 'MapoPeacefull' !important;
+	display: inline-block;
+	vertical-align: middle;
+	width: 40%;
+	height: 100%;
+	text-align: center;
+}
+
+td {
+	font-family: 'MapoPeacefull' !important;
+	padding: 15px !important;
+}
+
+/*---------- 테이블 : 본문 영역 ----------*/
+/* 본문글 기본 높이 */
+#board-content {
+	font-family: 'MapoPeacefull' !important;
+	height: 200px;
+}
+
+/* 글수정, 삭제 영역 */
+.board-update-delete {
+	text-align: right;
+	margin-left: 93%;
+}
+
+.board-update-delete a {
+	color: black;
+	text-decoration: none;
+}
+
+/*---------- 댓글영역 ----------*/
+.reply-content {
+	width: 60%;
+}
+
+.reply-update-delete, .reply-date {
+	text-align: center;
+}
+
+.reply-insert-area {
+	width: 100%;
+	display: flex;
+}
+
+.reply-label {
+	text-align: center;
+	font-size: 15px;
+}
+
+.reply-box {
+	width: 100%;
+}
+
+.reply-area {
+	width: 90%;
+}
+
+.reply-btn {
+	width: 5%;
+}
+
+input[name=name] {
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+#submit {
+	float: right;
+}

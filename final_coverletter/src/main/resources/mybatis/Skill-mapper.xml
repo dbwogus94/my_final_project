@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.Skill"> <!-- 인터페이스 이름 형식으로 할 것 -->
+
+
+	<!-- 결과 리턴시 DTO와 칼럼이 일치 하지 않을때 사용 -->
+	<!-- property dto 속성, column 대응할 칼럼명 -->
+	<!-- <resultMap type="" id="loginMap"> -->
+	<!-- <result property="" column=""/> -->
+	<!-- <result property="" column=""/> -->
+	<!-- </resultMap> -->
+
+	<!-- it역량차트 -->
+	<select id="selectItSkill" parameterType="skillDto"
+		resultType="map">
+		SELECT ITSKILL, ITSCORE
+		FROM SKILL
+		WHERE JOINEMAIL =
+		#{joinemail}
+		AND ITSKILL IS NOT NULL
+	</select>
+
+	<!-- 스킬차트1 (selectSkillLG) : 어학시험점수(가장 최근 취득한 점수) -->
+	<select id="selectSkillLG" parameterType="skillDto"
+		resultType="int">
+		SELECT *
+		FROM (
+		SELECT (LANGUAGESCORE/10), ROW_NUMBER()
+		OVER(ORDER BY REGDATE DESC) AS RNUM
+		FROM SKILL
+		WHERE JOINEMAIL =
+		#{joinemail}
+		AND CATEGORY = '어학'
+		)
+		WHERE RNUM = 1
+	</select>
+
+	<!-- 스킬차트2,3 (selectSkillContest) : 공모전, 자격증 개수 -->
+	<select id="selectSkillContest" parameterType="skillDto"
+		resultType="map">
+		SELECT COUNT(CONTEST) * 10, COUNT(CERTIFICATE) * 10
+		FROM SKILL
+		WHERE JOINEMAIL = #{joinemail}
+	</select>
+
+	<!-- 스킬차트4 (selectSkillGrade) : 학점 -->
+	<select id="selectSkillGrade" parameterType="skillDto"
+		resultType="String">
+		SELECT GRADE
+		FROM SCHOOL
+		WHERE JOINEMAIL = #{joinemail}
+
+	</select>
+
+	<!-- 스킬차트5 (selectCareer) : 학력 -->
+	<select id="selectCareer" parameterType="skillDto"
+		resultType="String">
+		SELECT *
+		FROM (
+		SELECT CAREER, ROW_NUMBER() OVER(ORDER BY GRADUATE DESC) AS RNUM
+		FROM SCHOOL
+		WHERE JOINEMAIL = #{joinemail}
+		)
+		WHERE RNUM = 1
+	</select>
+	
+</mapper>

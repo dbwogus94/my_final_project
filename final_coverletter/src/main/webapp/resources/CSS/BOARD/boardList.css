@@ -1,0 +1,117 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/*---------- container 영역 ----------*/
+.board-list {
+	font-family: 'MapoPeacefull';
+	height: 600px;
+	padding: 0% 1% 0% 1%;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    cursor: default;
+}
+
+/*---------- 테이블 ----------*/
+
+.header-bar th{
+	text-align: center;
+	    background-color: #f0f0f0;
+}
+
+tbody tr:hover {
+	background-color: #f2f2f2;
+	cursor: default;
+}
+
+/* 글제목 */
+.board-title {
+	text-align: left;
+	padding-left: 10px;
+	cursor:pointer;
+}
+
+/* 글번호, 작성일, 이메일 정렬 */
+.board-seq, .board-date, .board-email {
+	text-align: center;
+}
+
+.board-seq {
+	width: 10%;
+}
+
+.board-date, .board-email {
+	width: 15%;
+}
+
+/* 작성된 글이 없습니다. */
+#boardlist-null {
+	text-align: center;
+}
+
+/*---------- 검색영역 ----------*/
+.search-form {
+	text-align: center;
+	border: 0px;
+	width: 100%;
+}
+
+.search-select {
+	width: 20%;
+	display: inline-block;
+}
+
+.search-input {
+	width: 60%;
+	display: inline-block;
+}
+
+.search-btn-group {
+	width: 20%;
+	display: inline;
+}
+
+#search-btn {
+	border-color: #00bf6f !important;
+	background-color: #00bf6f !important;
+}
+
+/*---------- 페이징 ----------*/
+#paging-nav {
+	text-align: center;
+}
+
+#paging-nav a {
+	color: black;
+}
+
+/* 현재 페이지 색상 */
+.paging-focus{
+	background-color: #00bf6f !important;
+	color : #fff !important;
+}
+
+

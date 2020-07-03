@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.JoinUser"> <!-- 인터페이스 이름 형식으로 할 것 -->
+  
+  
+  <!-- 결과 리턴시 DTO와 칼럼이 일치 하지 않을때 사용 -->
+  <!-- property dto 속성, column 대응할 칼럼명 -->
+<!--   <resultMap type="" id="loginMap"> -->
+<!--   	<result property="" column=""/>  -->
+<!--   	<result property="" column=""/> -->
+<!--   </resultMap> -->
+ 	
+ 	
+ 	<resultMap type="joinuserDto" id="userMap">
+ 		<result property="joinseq" column="JOINSEQ"/>
+ 		<result property="joinemail" column="JOINEMAIL"/>
+ 		<result property="joinname" column="JOINNAME"/>
+ 		<result property="joinpw" column="JOINPW"/>
+ 		<result property="joinbirth" column="JOINBIRTH"/>
+ 		<result property="joinsex" column="JOINSEX"/>
+ 		<result property="photo" column="PHOTO"/>
+ 		<result property="mililtary" column="MILILTARY"/>
+ 		<result property="phone" column="PHONE"/>
+ 		<result property="address" column="ADDRESS"/>
+ 		<result property="kakao" column="KAKAO"/>
+ 		<result property="singup" column="SIGNUP"/>
+ 	</resultMap>
+ 	
+ 	<!--개인정보 selectOne-->
+ 	<select id="loginuser" parameterType="string" resultType="joinuserDto">
+ 		SELECT * FROM JOINUSER WHERE JOINEMAIL = #{joinemail}
+ 	</select>
+ 	
+ 	<!-- 회원가입 -->
+ 	<insert id="joinuser" parameterType="joinuserDto" >
+ 		INSERT INTO JOINUSER (JOINSEQ, JOINEMAIL, JOINNAME, JOINPW, JOINBIRTH, JOINSEX, SINGUP)
+ 		VALUES (JOIN_SEQ.NEXTVAL, 'abc@naver.com', #{joinname}, #{joinpw}, #{joinbirth}, #{joinsex},'Y') 
+ 	</insert>
+	
+	<!-- 정보수정 -->
+	<update id="updateuser" parameterType="joinuserDto">
+		UPDATE JOINUSER SET JOINPW = #{joinpw}
+		WHERE JOINEMAIL = #{joinemail}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<update id="userdelete" parameterType="string">
+		UPDATE JOINUSER SET SINGUP = 'N'
+		WHERE JOINEMAIL = #{joinemail}
+	</update>
+	
+ 
+ 	<!-- login -->
+ 	<select id="login" parameterType="joinuserDto" resultType="joinUserDto">
+ 		SELECT JOINSEQ, JOINEMAIL, JOINNAME, JOINPW, JOINBIRTH, JOINSEX, PHOTO, MILILTARY, PHONE, ADDRESS, KAKAO, SINGUP
+ 		FROM JOINUSER
+ 		WHERE JOINEMAIL = #{joinemail}
+ 		AND JOINPW = #{joinpw}
+ 	</select>
+ 	
+ 	<!-- 아이디중복확인 -->
+ 	<select id="checkEmail" parameterType="String" resultType="joinuserDto">
+ 		SELECT JOINEMAIL FROM JOINUSER WHERE JOINEMAIL = #{joinemail} AND SINGUP = 'Y'
+ 	</select>
+</mapper>

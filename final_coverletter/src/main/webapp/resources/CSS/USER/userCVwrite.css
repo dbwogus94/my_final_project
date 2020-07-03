@@ -1,0 +1,284 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+body {
+	font-size: 18px !important;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+	font-size: 36px !important;
+	font-weight: 700 !important;
+	cursor: default;
+}
+
+.star {
+	color:red;
+}
+
+/*---------- 자소서 제목 영역 ----------*/
+#title-area {
+	height: 150px;
+}
+
+.title-font {
+	text-align: center;
+	font-family: 'yg-jalnan';
+}
+
+#title-area .form-control {
+	font-family: 'MapoPeacefull';
+}
+
+/*---------- 자소서 작성 영역 ----------*/
+#cv-area {
+	height: 700px;
+	font-family: 'MapoPeacefull';
+}
+
+#input-grp {
+	margin-top: 20px;
+}
+
+.form-control {
+	font-size: 15px !important;
+	margin-bottom: 10px !important;
+}
+
+.col-md-6 {
+	width: 50% !important;
+}
+/* 맞춤법 검사 div */
+.count-area {
+	font-family: 'yg-jalnan';
+	text-align: center;
+	margin: 1%;
+}
+
+.count-text {
+	font-size: 20px;
+	margin: 25px 0px 25px 0px;
+}
+
+.count-span {
+	color: red;
+	font-weight: bold;
+}
+
+/* 작성, 검사 div */
+.cv-box {
+	border: 2px solid black;
+	border-radius: 10px 10px 0px 0px !important;
+}
+
+/* '작성' & '검사' title */
+.legend {
+	text-align: center;
+	display: block;
+	width: 20%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: inherit;
+	color: #333;
+	border: 0;
+}
+
+/* 작성폼 */
+.textarea {
+	width: 100%;
+	height: 300px;
+	border: 0px;
+	resize: none;
+	font-size: 13px;
+}
+
+/* 맞춤법 검사결과 */
+.cv-spell {
+	padding: 10px;
+	width: 100%;
+	height: 305px;
+	border: 0px;
+}
+
+/* 음성입력, 맞춤법검사 버튼 */
+.cv-btn {
+	font-size: 17px !important;
+	font-family: 'yg-jalnan' !important;
+	text-align: center;
+	width: 100% !important;
+	height: 50px;
+	border-radius: 0px 0px 10px 10px !important;
+	background-color: #00BF6F !important;
+	border-bottom: 2px solid black !important;
+	border-right: 2px solid black !important;
+	border-left: 2px solid black !important;
+}
+
+/*---------- cv-container 영역 추가/삭제 ----------*/
+/* 버튼영역 */
+.clone-btn-grp {
+	text-align: center;
+	margin-top: 30px !important;
+}
+
+/* 추가, 삭제 버튼 */
+.add-btn, .remove-btn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: black;
+	z-index: 1;
+	color: white;
+	border: 1px;
+	margin-left: 10px;
+}
+
+/*---------- submit 영역 ----------*/
+.submit-area {
+	font-family: 'yg-jalnan' !important;
+	text-align: center;
+	margin-top: 40px;
+}
+.submit-area .btn {
+	font-size: 14px !important;
+	width: 15%;	
+	height: 40px;
+	border: 1px solid gray !important;
+	letter-spacing: 0.2em !important;
+}
+
+.submit-area .btn:hover {
+	background-color: #00BF6F;
+	color: #fff !important;
+}
+
+/*---------- toast 영역 ----------*/
+.toast {
+	font-family: 'MapoPeacefull';
+	max-width: 450px !important;
+	font-size: 14px !important;
+	position: absolute;
+	top: 52px;
+	right: 0;
+	padding: 10px;
+}
+
+/*---------- 맞춤법검사 결과 영역 ----------*/
+.sugg-div {
+	display: inline-block;
+}
+
+.sugg-btn {
+	font-size: 14px !important;
+	margin: 2px;
+	border: 1px solid gray !important;
+}
+
+.sugg-btn:hover {
+	background-color: #00BF6F !important;
+}
+
+.non-err {
+	text-align: center;
+	font-size: 14px;
+	color: red;
+}
+
+/*---------- loading 영역 ----------*/
+.modal-body {
+	font-family: 'yg-jalnan' !important;
+	text-align: center;
+	color: white;
+}
+
+.loader {
+    padding: 0px 10px 0px 10px;
+    background-color: rgba(255,255,255,0.9);
+    margin-top: 300px;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ce4233;
+    /* letter-spacing: 0.2em; */
+    border-radius: 10px;
+}
+
+.loader::before, .loader::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: #ce4233;
+  position: absolute;
+  -webkit-animation: load .7s infinite alternate ease-in-out;
+          animation: load .7s infinite alternate ease-in-out;
+}
+.loader::before {
+  top: 0;
+}
+.loader::after {
+  bottom: 0;
+}
+
+@-webkit-keyframes load {
+  0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+  }
+  50% {
+    height: 8px;
+    width: 40px;
+  }
+  100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+  }
+}
+
+@keyframes load {
+  0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+  }
+  50% {
+    height: 8px;
+    width: 40px;
+  }
+  100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+  }
+}

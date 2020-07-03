@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.JobCalender"> <!-- 인터페이스 이름 형식으로 할 것 -->
+
+
+   <!-- 결과 리턴시 DTO와 칼럼이 일치 하지 않을때 사용 -->
+   <!-- property dto 속성, column 대응할 칼럼명 -->
+   <!-- <resultMap type="" id="loginMap"> -->
+   <!-- <result property="" column=""/> -->
+   <!-- <result property="" column=""/> -->
+   <!-- </resultMap> -->
+   <!-- 채용 즐겨찾기 게시판 -->
+   <select id="boardJobListCount" resultType="int"
+      parameterType="jobCalendarDto">
+      SELECT COUNT(*)
+      FROM JOBCALENDAR
+      WHERE JOINEMAIL = #{joinemail}
+      <trim prefix="AND" prefixOverrides="AND">
+         <if
+            test="category == 'companyname' and keyword != null and keyword != ''">
+            AND COMPANYNAME LIKE ('%' || #{keyword} || '%')
+         </if>
+         <if
+            test="category == 'business' and keyword != null and keyword != ''">
+            AND BUSINESS LIKE ('%' || #{keyword} || '%')
+         </if>
+         <if
+            test="category == 'enddate' and keyword != null and keyword != ''">
+            AND ENDDATE LIKE ('%' || #{keyword} || '%')
+         </if>
+      </trim>
+   </select>
+
+   <!-- 글목록(페이징) : StartIndex(시작인덱스), CntPerPage(마지막인덱스) 가져오기 -->
+   <select id="boardJobList" parameterType="jobCalendarDto"
+      resultType="jobCalendarDto">
+      SELECT B.*
+      FROM (
+      SELECT A.*, ROW_NUMBER() OVER(ORDER BY JOBCALENDARSEQ
+      DESC) AS RNUM
+      FROM JOBCALENDAR A
+      WHERE JOINEMAIL = #{joinemail}
+      <trim prefix="AND" prefixOverrides="AND">
+         <if
+            test="category == 'companyname' and keyword != null and keyword != ''">
+            AND COMPANYNAME LIKE ('%' || #{keyword} || '%')
+         </if>
+         <if
+            test="category == 'business' and keyword != null and keyword != ''">
+            AND BUSINESS LIKE ('%' || #{keyword} || '%')
+         </if>
+         <if
+            test="category == 'enddate' and keyword != null and keyword != ''">
+            AND ENDDATE LIKE ('%' || #{keyword} || '%')
+         </if>
+      </trim>
+      ) B
+      WHERE RNUM BETWEEN #{StartIndex} + 1 AND #{CntPerPage}
+      ORDER BY
+      JOBCALENDARSEQ DESC
+   </select>
+   
+   
+   <!-- 마감일이 수시채용이 아닌 jobCalendarDto 가져오기-->
+   <select id="getFullCalendarData" resultType="jobCalendarDto">
+   		SELECT * FROM JOBCALENDAR
+   		WHERE JOINEMAIL = #{joinemail} AND NOT ENDDATE = '수시채용' 
+   </select>
+   
+   
+   <!-- 즐겨찾기 추가 -->
+   <insert id="boardJobInsert" parameterType="jobCalendarDto">
+   		INSERT INTO JOBCALENDAR 
+   		VALUES(JOBCALENDAR_SEQ.NEXTVAL, #{joinemail}, #{companyseq}, #{companyname}, #{business}, #{enddate})
+   </insert>
+   
+   <!-- 즐겨찾기 유무  -->
+   <select id="isJobBookmark" resultType="jobCalendarDto">
+   		SELECT * FROM JOBCALENDAR 
+   		WHERE JOINEMAIL = #{joinemail} AND COMPANYSEQ = #{companyseq}
+   </select>
+   
+   <!-- 즐겨찾기 삭제 -->
+   <delete id="bookmarkDelete" parameterType="jobCalendarDto">
+		DELETE FROM JOBCALENDAR
+		WHERE JOINEMAIL = #{joinemail} AND COMPANYSEQ = #{companyseq}	
+   </delete>
+   
+   
+   
+
+</mapper>

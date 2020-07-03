@@ -1,0 +1,107 @@
+/*---------- container 영역 ----------*/
+.board-list {
+	height: 600px;
+	padding: 0% 1% 0% 1%;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    cursor: default;
+}
+
+/*---------- 테이블 ----------*/
+
+.header-bar th{
+	text-align: center;
+	    background-color: #f0f0f0;
+}
+
+tbody tr:hover {
+	background-color: #f2f2f2;
+	cursor: default;
+}
+
+/* 글제목 */
+.board-title {
+	text-align: left;
+	padding-left: 10px;
+	cursor:pointer;
+}
+
+/* 체크박스, 글번호, 작성일, 이메일 정렬 */
+.board-cb, .board-seq, .board-date, .board-down {
+	text-align: center;
+}
+
+.board-cb {
+	width: 5%;	
+}
+
+.board-seq {
+	width: 10%;
+}
+
+.board-date, .board-down {
+	width: 15%;
+}
+
+/* 작성된 글이 없습니다. */
+#boardlist-null {
+	text-align: center;
+}
+
+/*---------- 검색영역 ----------*/
+.search-form {
+	text-align: center;
+	border: 0px;
+	width: 100%;
+}
+
+.search-select {
+	width: 20%;
+	display: inline-block;
+}
+
+.search-input {
+	width: 60%;
+	display: inline-block;
+}
+
+.search-btn-group {
+	width: 20%;
+	display: inline;
+}
+
+#search-btn {
+	border-color: #00bf6f !important;
+	background-color: #00bf6f !important;
+}
+
+/*---------- 페이징 ----------*/
+#paging-nav {
+	text-align: center;
+}
+
+#paging-nav a {
+	color: black;
+}
+
+/* 현재 페이지 색상 */
+.paging-focus{
+	background-color: #00bf6f !important;
+	color : #fff !important;
+}
+
+/*삭제버튼*/
+#deleteSub{
+	float: right;
+}
+/*---------- 버튼 ----------*/
+.btn:hover {
+	background-color: #00bf6f !important;
+	color : #fff !important;
+}

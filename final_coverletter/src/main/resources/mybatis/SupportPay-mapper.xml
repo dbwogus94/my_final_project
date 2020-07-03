@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.job.coverletter.SupportPay"> <!-- 인터페이스 이름 형식으로 할 것 -->
+  
+  
+  <!-- 결과 리턴시 DTO와 칼럼이 일치 하지 않을때 사용 -->
+  <!-- property dto 속성, column 대응할 칼럼명 -->
+<!--   <resultMap type="" id="loginMap"> -->
+<!--   	<result property="" column=""/>  -->
+<!--   	<result property="" column=""/> -->
+<!--   </resultMap> -->
+	
+	<insert id="payInsert" parameterType="supportPayDto">
+		INSERT INTO SUPPORTPAY VALUES(#{tid},#{cid},#{partner_order_id},#{joinemail},#{payment_method_type},#{amount_total},#{amount_tax_free},#{item_name},#{quantity},#{created_at})
+	</insert>
+	
+	<select id="payListCount" resultType="int" parameterType="supportPayDto">
+		SELECT COUNT(*)
+		FROM SUPPORTPAY
+		WHERE JOINEMAIL= #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'amount_total' and keyword != null and keyword != ''">
+				AND AMOUNT_TOTAL LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'item_name' and keyword != null and keyword != ''">
+				AND ITEM_NAME LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'created_at' and keyword != null and keyword != ''">
+				AND CREATED_AT LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+	</select>
+
+	<!-- 글목록(페이징) : StartIndex(시작인덱스), CntPerPage(마지막인덱스) 가져오기 -->
+	<select id="payList" parameterType="supportPayDto"
+		resultType="supportPayDto">
+		SELECT B.*
+		FROM (
+		SELECT A.*, ROW_NUMBER() OVER(ORDER BY CREATED_AT DESC) AS RNUM
+		FROM SUPPORTPAY A
+		WHERE JOINEMAIL = #{joinemail}
+		<trim prefix="AND" prefixOverrides="AND">
+			<if
+				test="category == 'amount_total' and keyword != null and keyword != ''">
+				AND AMOUNT_TOTAL LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'item_name' and keyword != null and keyword != ''">
+				AND ITEM_NAME LIKE ('%' || #{keyword} || '%')
+			</if>
+			<if
+				test="category == 'created_at' and keyword != null and keyword != ''">
+				AND CREATED_AT LIKE ('%' || #{keyword} || '%')
+			</if>
+		</trim>
+		) B
+		WHERE RNUM BETWEEN #{StartIndex} + 1 AND #{CntPerPage}
+		ORDER BY CREATED_AT DESC
+	</select>
+	
+	
+	
+ 
+</mapper>

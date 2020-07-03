@@ -1,0 +1,158 @@
+
+
+	/* background: #ebe6e6; */
+
+
+#main h4{text-align: center;}
+
+#main .col-md-2{padding: 0%;}
+
+#div_span01{padding: 0.5%;}
+
+#span01{color: orange; font-size: 8pt;}
+
+#div_text_search{padding: 0%;}
+
+#main #div_btn{padding-left: 0.5%;}
+
+
+
+/* 검색 select Box */
+#select_search{
+	height: 40px;
+}
+/* 검색 키워드 div */
+#search_company{
+	height: 40px;
+	padding: 0%;
+	padding-left: 1%;
+}
+
+.keyword_h5{
+	display: inline-block;
+	padding-right: 5px; 
+}
+
+#search_company span {
+	font-size: 12px;
+	color: white;
+	background-color: #00bf6f;
+	padding-right: 4px;
+}
+
+.keyword_button{
+	padding: 0;
+	border: none;
+	background-color: #00bf6f;
+	font-size: 10px;
+}
+
+.keyword_button:hover{
+	color: #65CBFF;
+}
+
+
+/* 검색버튼 */
+#btn_search{
+	border: 1.5px solid darkgrey; 
+	background-color: darkgrey; 
+	width: 50%;  
+	height: 40px;
+	padding-left: 5%; 
+	padding-right: 5%;
+}
+
+#btn_search:hover{
+	border: 1.5px solid #00bf6f; 
+	background-color: #00bf6f; 
+	width: 50%;  
+	height: 40px;
+	padding-left: 5%; 
+	padding-right: 5%;
+}
+
+	
+/* 리셋버튼 */
+#btn_reset{
+	border-color: crimson; 
+	background-color: crimson; 
+	width: 30%;
+	height: 40px;
+	}
+
+
+/* 검색결과 컨테이너 */
+#search_container .row{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	position: relative;
+	border-bottom: 1px solid gray;
+	height: 140px;
+}
+
+#search_container .row:hover{
+	border: 1.5px solid #00bf6f; 
+}
+
+/* 이미지 div */
+#search_container img{
+	width: auto; 
+	height: auto;
+    max-width: 100px;
+    max-height: 100px;	
+}
+
+#search_container .col-md-2{
+	display: table;
+	height: 100%;
+}
+
+.div_img_top{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.div_img_mid{
+	display: inline-block;
+}
+
+.company_left{
+	width: 65%;
+	float: left;
+}
+.company_right{
+	width: 25%;
+	float: right;
+}
+
+
+#search_container h5 span{ 
+	font-size: 10px !important;
+}
+
+#search_container a{
+	color: black;
+}
+
+
+#search_container span{
+	font-size: 10pt;
+	color: gray;
+}
+
+
+.btn_compnay{
+	width: 60px;
+	height: 20px;
+	background-color: white;
+	font-size: 12px;
+	color: gray;
+	border: black;
+	border-bottom: 1px solid #00bf6f;
+}
+
+
+
+
+

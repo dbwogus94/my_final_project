@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.job.coverletter.model.board.dto.BoardDto" alias="boardDto"/>
+		<!-- companyDto 마리아DB로 이동 -->
+		<typeAlias type="com.job.coverletter.model.coverletter.dto.CoverLetterDto" alias="coverLetterDto"/>
+		<typeAlias type="com.job.coverletter.model.jobcalendar.dto.JobCalendarDto" alias="jobCalendarDto"/>
+		<typeAlias type="com.job.coverletter.model.joinUser.dto.JoinUserDto" alias="joinuserDto"/>
+		<typeAlias type="com.job.coverletter.model.school.dto.SchoolDto" alias="schoolDto"/>
+		<typeAlias type="com.job.coverletter.model.skill.dto.SkillDto" alias="skillDto"/>
+		<typeAlias type="com.job.coverletter.model.supportPay.dto.SupportPayDto" alias="supportPayDto"/>
+		<typeAlias type="com.job.coverletter.model.total.dto.TotalDto" alias="totalDto"/>
+		<typeAlias type="com.job.coverletter.model.qnaboard.dto.QnaBoardDto" alias="qnaBoardDto"/>
+	</typeAliases>
+
+
+  <mappers>
+    <mapper resource="mybatis/board-mapper.xml"/>
+    <!-- company-mapper.xml 마리아 DB로 이동 -->
+    <mapper resource="mybatis/coverLetter-mapper.xml"/>
+    <mapper resource="mybatis/jobCalendar-mapper.xml"/>
+    <mapper resource="mybatis/joinUser-mapper.xml"/>
+    <mapper resource="mybatis/School-mapper.xml"/>
+    <mapper resource="mybatis/Skill-mapper.xml"/>
+    <mapper resource="mybatis/SupportPay-mapper.xml"/>
+    <mapper resource="mybatis/Total-mapper.xml"/>
+    <mapper resource="mybatis/qnaboard-mapper.xml"/>
+    <!-- join된  mapper 추가 -->
+  </mappers>
+
+</configuration>
+
+

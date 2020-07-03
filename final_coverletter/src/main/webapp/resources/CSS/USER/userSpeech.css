@@ -1,0 +1,226 @@
+/*---------- 웹폰트 ----------*/
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MapoPeacefull';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*---------- 타이틀 영역 ----------*/
+h1 {
+	font-family: 'yg-jalnan' !important;
+	text-align: center !important;
+	margin: 4% 0% 4% 0% !important;
+	font-size: 36px !important;
+	font-weight: 700 !important;
+	cursor: default;
+}
+
+/*---------- 대본 & 연습 타이틀 ----------*/
+.legend {
+	font-family: 'yg-jalnan' !important;
+	text-align: center;
+	width: 20%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: inherit;
+	color: #333;
+	border: 0;
+}
+
+/*---------- 대본, 연습 영역 ----------*/
+.speech-box {
+	border: 2px solid black;
+	border-radius: 10px 10px 0px 0px !important;
+}
+
+/* 작성폼 */
+.textarea {
+	padding: 10px !important;
+	width: 100%;
+	height: 300px;
+	border: 0px;
+	resize: none;
+	font-size: 13px;
+}
+
+/* 다음문제, 대본녹음, 연습, 확인 버튼 */
+.speech-btn {
+	font-family: 'MapoPeacefull';
+	font-size: 17px !important;
+	font-family: 'yg-jalnan' !important;
+	text-align: center;
+	width: 100% !important;
+	height: 50px;
+	border-radius: 0px 0px 10px 10px !important;
+	background-color: #00BF6F !important;
+	border-bottom: 2px solid black !important;
+	border-right: 2px solid black !important;
+	border-left: 2px solid black !important;
+}
+
+/* 동적추가 버튼 */
+#speech, #quiz, #answer, #nextQuestion {
+	margin-top: -7px;
+	border-top: 2px solid black;
+}
+
+/* 버튼영역 */
+.clone-btn-grp {
+	text-align: center;
+	margin-top: 30px !important;
+}
+
+/* 추가, 삭제 버튼 */
+.button2 {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: black;
+	z-index: 1;
+	color: white;
+	border: 1px;
+	margin-left: 10px;
+}
+
+
+/*---------- select box ----------*/
+.select-div {
+	font-family: 'MapoPeacefull';
+	width: 100%;
+	padding: 0px 25px 0px 25px;
+}
+
+/*---------- 타이머 & 종료 ----------*/
+#timeDP {
+	font-family: 'MapoPeacefull';
+	width: 100% !important;
+	padding: 0px 40px 0px 40px !important;
+}
+
+#end {
+	font-family: 'MapoPeacefull';
+}
+
+.main {
+	display: flex;
+}
+
+.side {
+	flex: 0.02;
+}
+
+.center {
+	flex: 2;
+	display: flex;
+}
+
+.internal {
+	text-align: center;
+	flex: 1;
+}
+
+.internal_bewteen {
+	flex: 0.1;
+}
+
+#blank {
+	height: 25px;
+}
+
+.textarea {
+	border: none;
+	outline: none;
+	resize: none;
+}
+
+#form .col-md-8 {
+	text-align: center;
+}
+
+.speech {
+	width: 150px;
+	height: 40px;
+	border-radius: px;
+	background-color: #949494;
+	color: white;
+	text-align: center;
+}
+
+#custom_button2 {
+	text-align: center;
+}
+
+.button2 {
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+}
+
+.button3 {
+	background-color: #949494;
+	color: white;
+	height: 40px;
+	width: 150px;
+}
+
+#stop {
+	border: 0px;
+	border-radius: 7px;
+	background-color: #949494;
+	color: white;
+}
+
+#quiz {
+	cursor: pointer;
+}
+
+#timeDP {
+	display: flex;
+}
+
+#timer {
+	flex: 1;
+	cursor: pointer;
+	text-align: center !important;
+	width: 100px;
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #949494;
+	border-radius: 5px;
+	font-size: 14pt;
+}
+
+<!--
+-->
+#end {
+	font-size: 14pt;
+	flex: 1;
+	cursor: pointer;
+	text-align: center !important;
+	border: 1px solid #949494;
+	width: 100px;
+	height: 36px;
+	line-height: 36px;
+	border-radius: 5px;
+}
+
+#quiz {
+	margin-bottom: 1%;
+}
+
+textarea {
+	resize: none;
+}
